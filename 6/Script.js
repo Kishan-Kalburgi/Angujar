@@ -25,4 +25,10 @@ var myApp = angular
                         }
                         return '';
                     }
+
+                    $scope.searchBy = 'name';
+
+                    $scope.search = function(col){
+                        $scope.searchBy = col
+                    }
                 });

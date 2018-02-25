@@ -14,6 +14,8 @@
                     <option value="gender">Gender ASC</option>
                     <option value="-salary">Salary DESC</option>
                  </select>
+           <br />
+           Search: <input type="text" placeholder="Search for employee" ng-model="searchText">
            <br /><br />
            <table>
                <thead>
@@ -32,7 +34,7 @@
                    <th>Salary (currency)</th>
                </thead>
                <tbody>
-                   <tr ng-repeat="e in employees | limitTo:rowLimit | orderBy:sort:reverseSort ">
+                   <tr ng-repeat="e in employees | limitTo:rowLimit | orderBy:sort:reverseSort | filter:searchText">
                        <td>{{ e.name | uppercase }}</td>
                        <td>{{ e.dob | date:"dd/MM/yyyy" }}</td>
                        <td>{{ e.gender | lowercase }}</td>
