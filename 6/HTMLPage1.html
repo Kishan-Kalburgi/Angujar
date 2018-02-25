@@ -8,6 +8,12 @@
     <body ng-app="myModule">
        <div ng-controller="myController">
            Rows to Display: <input type="number" step="1" min="0" max="5" ng-model="rowLimit">
+           Sort: <select ng-model="sort">
+                    <option value="name">Name ASC</option>
+                    <option value="dob">Date of Birth ASC</option>
+                    <option value="gender">Gender ASC</option>
+                    <option value="-salary">Salary DESC</option>
+                 </select>
            <br /><br />
            <table>
                <thead>
@@ -18,7 +24,7 @@
                    <th>Salary (currency)</th>
                </thead>
                <tbody>
-                   <tr ng-repeat="e in employees | limitTo:rowLimit">
+                   <tr ng-repeat="e in employees | limitTo:rowLimit | orderBy:sort ">
                        <td>{{ e.name | uppercase }}</td>
                        <td>{{ e.dob | date:"dd/MM/yyyy" }}</td>
                        <td>{{ e.gender | lowercase }}</td>
