@@ -1,9 +1,19 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="myModule">
     <head>
-        <script src="angular.min.js"></script>
+        <script src="angular.js"></script>
+        <script src="Script.js"></script>
     </head>
-    <body>
+    <body ng-controller="myController">
+        <div>
+            First Name : {{ employee.FirstName }}
+        </div>
+        <div>
+            Last Name : {{ employee.LastName }}
+        </div>
+        <div>
+            Gender: {{ employee.Gender }}
+        </div>
         <div>
             10 + 20 = {{ 10 + 20 }}
         </div>
