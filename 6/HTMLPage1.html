@@ -17,14 +17,22 @@
            <br /><br />
            <table>
                <thead>
-                   <th>Name</th>
-                   <th>Date of Birth</th>
-                   <th>Gender</th>
-                   <th>Salary (number)</th>
+                   <th ng-click="sortdata('name')">
+                       Name <div ng-class="getSortClass('name')"></div>
+                    </th>
+                   <th ng-click="sortdata('dob')">
+                       Date of Birth <div ng-class="getSortClass('dob')"></div>
+                    </th>
+                   <th ng-click="sortdata('gender')">
+                       Gender <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                   <th ng-click="sortdata('salary')">
+                       Salary (number) <div ng-class="getSortClass('salary')"></div>
+                    </th>
                    <th>Salary (currency)</th>
                </thead>
                <tbody>
-                   <tr ng-repeat="e in employees | limitTo:rowLimit | orderBy:sort ">
+                   <tr ng-repeat="e in employees | limitTo:rowLimit | orderBy:sort:reverseSort ">
                        <td>{{ e.name | uppercase }}</td>
                        <td>{{ e.dob | date:"dd/MM/yyyy" }}</td>
                        <td>{{ e.gender | lowercase }}</td>

@@ -10,6 +10,19 @@ var myApp = angular
                     ];
 
                     $scope.employees = employees
-                    $scope.rowLimit = 3;
+                    $scope.rowLimit = 5;
                     $scope.sort = "name";
+                    $scope.reverseSort = false;
+
+                    $scope.sortdata = function(col){
+                        $scope.reverseSort = ($scope.sort == col) ? !$scope.reverseSort : false;
+                        $scope.sort = col;
+                    }
+
+                    $scope.getSortClass = function(col){
+                        if($scope.sort == col){
+                            return $scope.reverseSort ? 'arrow-down' : 'arrow-up'
+                        }
+                        return '';
+                    }
                 });
